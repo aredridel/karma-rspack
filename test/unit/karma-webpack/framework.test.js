@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const KW_Framework = require('../../../lib/karma-webpack/framework');
+const KW_Framework = require('../../../lib/karma-rspack/framework');
 
 jest.mock('fs');
 

@@ -1,10 +1,10 @@
 const os = require('os');
 const path = require('path');
 
-const KW_Controller = require('../../../lib/karma-webpack/controller');
-const DefaultWebpackOptionsFactory = require('../../../lib/webpack/defaults');
+const KW_Controller = require('../../../lib/karma-rspack/controller');
+const DefaultRspackOptionsFactory = require('../../../lib/rspack/defaults');
 
-const defaultWebpackOptions = DefaultWebpackOptionsFactory.create();
+const defaultRspackOptions = DefaultRspackOptionsFactory.create();
 
 describe('KW_Controller', () => {
   const EXPECTED_DEFAULT_PATH_PREFIX = '_karma_webpack_';
@@ -34,12 +34,12 @@ describe('KW_Controller', () => {
 
   it('should otherwise be equal to a newly instantiated default webpack options object', () => {
     controller.webpackOptions.output.path = EXPECTED_DEFAULT_PATH_PREFIX;
-    defaultWebpackOptions.output.path = EXPECTED_DEFAULT_PATH_PREFIX;
-    expect(controller.webpackOptions).toEqual(defaultWebpackOptions);
+    defaultRspackOptions.output.path = EXPECTED_DEFAULT_PATH_PREFIX;
+    expect(controller.webpackOptions).toEqual(defaultRspackOptions);
   });
 
   it('can provide custom nested webpackOptions', () => {
-    controller.updateWebpackOptions({
+    controller.updateRspackOptions({
       output: {
         path: 'foo',
         publicPath: 'bar',
@@ -48,7 +48,7 @@ describe('KW_Controller', () => {
     expect(controller.webpackOptions.output.path).toBe('foo');
     expect(controller.webpackOptions.output.publicPath).toBe('bar');
     expect(controller.webpackOptions.output.filename).toBe(
-      defaultWebpackOptions.output.filename
+      defaultRspackOptions.output.filename
     );
   });
 });

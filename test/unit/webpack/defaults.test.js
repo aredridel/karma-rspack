@@ -1,4 +1,4 @@
-const DefaultWebpackOptionsFactory = require('../../../lib/webpack/defaults');
+const DefaultWebpackOptionsFactory = require('../../../lib/rspack/defaults');
 
 describe('DefaultWebpackOptionsFactory', () => {
   it('should be defined', () => {
