@@ -1,18 +1,18 @@
 const fs = require('fs');
 const path = require('path');
 
-const KW_Framework = require('../../../lib/karma-rspack/framework');
+const KR_Framework = require('../../../lib/karma-rspack/framework');
 
 jest.mock('fs');
 
-describe('KW_Framework', () => {
+describe('KR_Framework', () => {
   test('Defaults', () => {
     const controller = { outputPath: 'foo/' };
     const config = { files: [], __karmaRspackController: controller };
     fs.closeSync = jest.fn();
     fs.openSync = jest.fn();
 
-    KW_Framework(config);
+    KR_Framework(config);
 
     expect(fs.openSync).toBeCalledWith(path.join('foo', 'commons.js'), 'w');
     expect(fs.openSync).toBeCalledWith(path.join('foo', 'runtime.js'), 'w');

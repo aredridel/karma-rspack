@@ -1,17 +1,17 @@
 const os = require('os');
 const path = require('path');
 
-const KW_Controller = require('../../../lib/karma-rspack/controller');
+const KR_Controller = require('../../../lib/karma-rspack/controller');
 const DefaultRspackOptionsFactory = require('../../../lib/rspack/defaults');
 
 const defaultRspackOptions = DefaultRspackOptionsFactory.create();
 
-describe('KW_Controller', () => {
+describe('KR_Controller', () => {
   const EXPECTED_DEFAULT_PATH_PREFIX = '_karma_rspack_';
 
   let controller;
 
-  beforeEach(() => (controller = new KW_Controller()));
+  beforeEach(() => (controller = new KR_Controller()));
 
   it('initializes with a rspackOptions object', () => {
     expect(controller.rspackOptions).toBeDefined();

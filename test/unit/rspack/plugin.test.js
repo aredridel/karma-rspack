@@ -1,8 +1,8 @@
-const KW_RspackPlugin = require('../../../lib/rspack/plugin');
+const KR_RspackPlugin = require('../../../lib/rspack/plugin');
 
-describe('KW_RspackPlugin', () => {
+describe('KR_RspackPlugin', () => {
   it('should be defined', () => {
-    expect(KW_RspackPlugin).toBeDefined();
-    // todo(mikol): write a KW_RspackPlugin test suite before v5 official release.
+    expect(KR_RspackPlugin).toBeDefined();
+    // todo(mikol): write a KR_RspackPlugin test suite before v5 official release.
   });
 });
