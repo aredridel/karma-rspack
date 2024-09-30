@@ -8,7 +8,7 @@ jest.mock('fs');
 describe('KW_Framework', () => {
   test('Defaults', () => {
     const controller = { outputPath: 'foo/' };
-    const config = { files: [], __karmaWebpackController: controller };
+    const config = { files: [], __karmaRspackController: controller };
     fs.closeSync = jest.fn();
     fs.openSync = jest.fn();
 

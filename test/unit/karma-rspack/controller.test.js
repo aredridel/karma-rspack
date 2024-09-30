@@ -7,47 +7,47 @@ const DefaultRspackOptionsFactory = require('../../../lib/rspack/defaults');
 const defaultRspackOptions = DefaultRspackOptionsFactory.create();
 
 describe('KW_Controller', () => {
-  const EXPECTED_DEFAULT_PATH_PREFIX = '_karma_webpack_';
+  const EXPECTED_DEFAULT_PATH_PREFIX = '_karma_rspack_';
 
   let controller;
 
   beforeEach(() => (controller = new KW_Controller()));
 
-  it('initializes with a webpackOptions object', () => {
-    expect(controller.webpackOptions).toBeDefined();
+  it('initializes with a rspackOptions object', () => {
+    expect(controller.rspackOptions).toBeDefined();
   });
 
   it('correctly sets the default output path prefix', () => {
     expect(
-      controller.webpackOptions.output.path.startsWith(
+      controller.rspackOptions.output.path.startsWith(
         path.join(os.tmpdir(), EXPECTED_DEFAULT_PATH_PREFIX)
       )
     ).toBeTruthy();
   });
 
-  it('correctly postfixes a random number to the end of the webpack options output path for parallel runs', () => {
-    const postfix = controller.webpackOptions.output.path.split(
+  it('correctly postfixes a random number to the end of the rspack options output path for parallel runs', () => {
+    const postfix = controller.rspackOptions.output.path.split(
       EXPECTED_DEFAULT_PATH_PREFIX
     )[1];
     expect(isNaN(postfix)).toBe(false);
   });
 
-  it('should otherwise be equal to a newly instantiated default webpack options object', () => {
-    controller.webpackOptions.output.path = EXPECTED_DEFAULT_PATH_PREFIX;
+  it('should otherwise be equal to a newly instantiated default rspack options object', () => {
+    controller.rspackOptions.output.path = EXPECTED_DEFAULT_PATH_PREFIX;
     defaultRspackOptions.output.path = EXPECTED_DEFAULT_PATH_PREFIX;
-    expect(controller.webpackOptions).toEqual(defaultRspackOptions);
+    expect(controller.rspackOptions).toEqual(defaultRspackOptions);
   });
 
-  it('can provide custom nested webpackOptions', () => {
+  it('can provide custom nested rspackOptions', () => {
     controller.updateRspackOptions({
       output: {
         path: 'foo',
         publicPath: 'bar',
       },
     });
-    expect(controller.webpackOptions.output.path).toBe('foo');
-    expect(controller.webpackOptions.output.publicPath).toBe('bar');
-    expect(controller.webpackOptions.output.filename).toBe(
+    expect(controller.rspackOptions.output.path).toBe('foo');
+    expect(controller.rspackOptions.output.publicPath).toBe('bar');
+    expect(controller.rspackOptions.output.filename).toBe(
       defaultRspackOptions.output.filename
     );
   });
