@@ -1,8 +1,8 @@
-const KW_KarmaPlugin = require('../../../lib/karma/plugin');
+const KR_KarmaPlugin = require('../../../lib/karma/plugin');
 
-describe('KW_KarmaPlugin', () => {
+describe('KR_KarmaPlugin', () => {
   it('should be defined', () => {
-    expect(KW_KarmaPlugin).toBeDefined();
+    expect(KR_KarmaPlugin).toBeDefined();
   });
-  // todo(mikol): write test suite for KarmaWebpackPlugin prior to v5 official release.
+  // todo(mikol): write test suite for KarmaRspackPlugin prior to v5 official release.
 });
